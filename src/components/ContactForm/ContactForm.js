@@ -30,7 +30,7 @@ const initialValues = {
 export class ContactForm extends Component {
   state = {
     name: "",
-    number: ""
+    number: "",
   }
 
   nameId = nanoid();
