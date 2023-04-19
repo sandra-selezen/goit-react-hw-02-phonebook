@@ -36,10 +36,9 @@ export class ContactForm extends Component {
   nameId = nanoid();
   numberId = nanoid();
 
-  handleSubmit = ({ name, number }, { resetForm }) => {
-    console.log(name, number);
-    this.setState({ name, number });
-    this.props.onSubmit({ name, number });
+  handleSubmit = (values, { resetForm }) => {
+    this.setState(values);
+    this.props.onSubmit({ ...values, id: nanoid() }); 
     resetForm();
   };
 

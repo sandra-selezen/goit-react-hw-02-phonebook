@@ -12,15 +12,17 @@ export class App extends Component {
     filter: ''
   }
 
-  handleFormSubmit = data => {
-    console.log(data);
-  }
+  addContact = newContact => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
+  };
 
   render() {
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.handleFormSubmit} />
+        <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <ContactList contacts={this.state.contacts}/>
       </>
