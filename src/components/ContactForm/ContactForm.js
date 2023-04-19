@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
 const ErrorText = styled.p`
@@ -21,29 +22,39 @@ const schema = yup.object().shape({
   number: yup.string().required()
 });
 
+const initialValues = {
+  name: "",
+  number: ""
+}
+
 export class ContactForm extends Component {
   state = {
     name: "",
     number: ""
   }
 
-  handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  nameId = nanoid();
+  numberId = nanoid();
+
+  handleSubmit = ({ name, number }, { resetForm }) => {
+    console.log(name, number);
+    this.setState({ name, number });
+    this.props.onSubmit({ name, number });
     resetForm();
   };
 
   render() {
     return (
-      <Formik initialValues={this.state} validationSchema={schema} onSubmit={this.handleSubmit}>
+      <Formik initialValues={initialValues} validationSchema={schema} onSubmit={this.handleSubmit}>
         <Form>
-          <label htmlFor="name">Name</label>
+          <label htmlFor={this.numberId}>Name</label>
           <div>
-            <Field type="text" name="name" placeholder="Enter contact name" />
+            <Field type="text" name="name" id={this.numberId} placeholder="Enter contact name" />
             <FormError name="name" />
           </div>
-          <label htmlFor="number">Number</label>
+          <label htmlFor={this.numberId}>Number</label>
           <div>
-            <Field type="tel" name="number" placeholder="Enter contact phone number" />
+            <Field type="tel" name="number" id={this.numberId} placeholder="Enter contact phone number" />
             <FormError name="number" />
           </div>
           

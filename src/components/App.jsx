@@ -11,11 +11,16 @@ export class App extends Component {
     ],
     filter: ''
   }
+
+  handleFormSubmit = data => {
+    console.log(data);
+  }
+
   render() {
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onSubmit={this.handleFormSubmit} />
         <h2>Contacts</h2>
         <ContactList contacts={this.state.contacts}/>
       </>
