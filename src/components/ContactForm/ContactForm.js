@@ -49,7 +49,7 @@ export class ContactForm extends Component {
         <Form>
           <label htmlFor={this.numberId}>Name</label>
           <div>
-            <Field type="text" name="name" id={this.numberId} placeholder="Enter contact name" />
+            <Field name="name" id={this.numberId} placeholder="Enter contact name" />
             <FormError name="name" />
           </div>
           <label htmlFor={this.numberId}>Number</label>
