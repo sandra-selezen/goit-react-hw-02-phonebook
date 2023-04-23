@@ -8,7 +8,7 @@ const theme = {
     whiteColor: "hsl(0, 0%, 100%)",
     blackColor: "hsl(0, 0%, 0%)",
   },
-  borderRadius: "10px",
+  borderRadius: "5px",
   duration: "250ms",
   timingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
 }

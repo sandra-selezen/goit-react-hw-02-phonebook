@@ -1,12 +1,9 @@
 import { Component } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
-import styled from 'styled-components';
-
-const ErrorText = styled.p`
-  color: red;
-`;
+import { Form, ErrorText, FormBox, FormLabel, FormButton } from './ContactForm.styled';
+import { RiPhoneFill, RiUserFill, RiUserAddFill } from "react-icons/ri";
 
 const FormError = ({ name }) => {
   return (
@@ -46,18 +43,20 @@ export class ContactForm extends Component {
     return (
       <Formik initialValues={initialValues} validationSchema={schema} onSubmit={this.handleSubmit}>
         <Form>
-          <label htmlFor={this.numberId}>Name</label>
-          <div>
+          
+          <FormLabel htmlFor={this.numberId}><RiUserFill />Name</FormLabel>
+          <FormBox>
             <Field name="name" id={this.numberId} placeholder="Enter contact name" />
             <FormError name="name" />
-          </div>
-          <label htmlFor={this.numberId}>Number</label>
-          <div>
+          </FormBox>
+          
+          <FormLabel htmlFor={this.numberId}><RiPhoneFill />Number</FormLabel>
+          <FormBox>
             <Field type="tel" name="number" id={this.numberId} placeholder="Enter contact phone number" />
             <FormError name="number" />
-          </div>
+          </FormBox>
           
-          <button type="submit">Add contact</button>
+          <FormButton type="submit"><RiUserAddFill />Add contact</FormButton>
         </Form>
       </Formik>
     )

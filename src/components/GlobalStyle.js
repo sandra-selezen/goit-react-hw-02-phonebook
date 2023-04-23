@@ -29,9 +29,18 @@ export const GlobalStyle = createGlobalStyle`
     color: ${p => p.theme.colors.whiteColor};
     outline: none;
     border: none;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border-bottom: 1px solid ${p => p.theme.colors.whiteColor};
+  }
+  input::placeholder {
+    font-size: 12px;
   }
   h1, h2 {
     font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
   img {
     max-width: 100%;
