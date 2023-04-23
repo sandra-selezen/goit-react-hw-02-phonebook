@@ -4,6 +4,7 @@ import { Filter } from "./Filter/Filter";
 import { ContactList } from "./ContactList/ContactList";
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout/Layout';
+import { Container } from "./Container/Container";
 
 export class App extends Component {
   state = {
@@ -48,12 +49,14 @@ export class App extends Component {
 
     return (
       <Layout>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.changeFilter}/>
-        <ContactList contacts={searchContact} onDeleteContact={this.deleteContact} />
-        <GlobalStyle />
+        <Container>
+          <h1>Phonebook</h1>
+          <ContactForm onSubmit={this.addContact} />
+          <h2>Contacts</h2>
+          <Filter value={filter} onChange={this.changeFilter}/>
+          <ContactList contacts={searchContact} onDeleteContact={this.deleteContact} />
+          <GlobalStyle />
+        </Container>
       </Layout>
     )
   }
