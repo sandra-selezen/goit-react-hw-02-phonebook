@@ -14,7 +14,10 @@ export class App extends Component {
   };
 
   addContact = newContact => {
-    this.setState(prevState => ({
+
+    this.state.contacts.some(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())
+      ? alert("This contact is already in your Phonebook!")
+      : this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
   };
