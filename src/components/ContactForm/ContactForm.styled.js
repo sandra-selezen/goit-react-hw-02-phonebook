@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Form as FormikForm } from 'formik';
-// import { RiPhoneFill, RiUserFill } from "react-icons/ri";
 
 export const Form = styled(FormikForm)`
   margin-bottom: 20px;

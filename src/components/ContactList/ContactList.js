@@ -1,13 +1,15 @@
 import { ContactListItem } from "./ContactListItem";
+import { List } from "./ContactList.styled";
+import { Item } from "./ContactListItem.styled";
 
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
-    <ul>
+    <List>
       {contacts.map(contact => (
-        <li key={contact.id}>
+        <Item key={contact.id}>
           <ContactListItem contact={contact} onDeleteContact={onDeleteContact} />
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   )
 }
