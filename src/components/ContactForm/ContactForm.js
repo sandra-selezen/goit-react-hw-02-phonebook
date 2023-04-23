@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Component } from 'react';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -61,4 +62,8 @@ export class ContactForm extends Component {
       </Formik>
     )
   }
+}
+
+FormError.propTypes = {
+  name: PropTypes.string.isRequired,
 }
