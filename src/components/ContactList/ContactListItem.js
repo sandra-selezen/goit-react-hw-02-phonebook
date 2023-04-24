@@ -9,7 +9,7 @@ export const ContactListItem = ({ contact: { id, name, number }, onDeleteContact
         <span>{name}:</span> <span>{number}</span>
       </div>
       <div>
-        <DeleteBtn aria-label='Delete' type="button" onClick={() => onDeleteContact(id)}><RiUserUnfollowFill /></DeleteBtn>
+        <DeleteBtn title="Delete contact" aria-label='Delete contact' type="button" onClick={() => onDeleteContact(id)}><RiUserUnfollowFill /></DeleteBtn>
       </div>
     </>
   )
